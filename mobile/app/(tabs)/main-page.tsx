@@ -1,7 +1,8 @@
 import { useAuth, useUser } from "@clerk/clerk-expo";
 import { Text } from "react-native";
 import { SignOutButton } from '@/components/sign-out-button'
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
+import { BackendGateway } from "@/api/backend-gateway";
 
 export function MainPage() {
     const { user } = useUser();
@@ -10,14 +11,7 @@ export function MainPage() {
 
     useEffect(() => {
         const f = async () => {
-            const token = await getToken();
-            const response = await fetch('http://192.168.1.91:3000/api/auth-test', {
-                headers: {
-                Authorization: `Bearer ${token}`
-                }
-            });
-
-            console.log("Response status:", response.status);
+            const response = await BackendGateway.authTest(getToken);
 
             const data = await response.json();
             setUserId(data.userId);
