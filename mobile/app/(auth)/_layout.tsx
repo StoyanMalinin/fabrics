@@ -4,8 +4,6 @@ import { useAuth } from '@clerk/clerk-expo'
 export default function AuthRoutesLayout() {
   const { isSignedIn } = useAuth();
 
-  throw new Error("Testing error boundary in (auth)/_layout.tsx");
-
   if (isSignedIn) {
     return <Redirect href={'/'} />
   }

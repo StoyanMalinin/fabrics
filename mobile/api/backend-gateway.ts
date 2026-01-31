@@ -1,6 +1,6 @@
 import type { GetToken } from '@clerk/types';
 
-const BASE_URL = `http://${process.env.BACKEND_HOST}`
+const BASE_URL = `http://${process.env.EXPO_PUBLIC_BACKEND_HOST}`
 
 class _BackendGateway {
     async _get(getToken: GetToken, path: string, body: any = null) {
@@ -8,10 +8,8 @@ class _BackendGateway {
         return await fetch(`${BASE_URL}${path}`, {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
             },
-            body: JSON.stringify(body),
         });
     }
     

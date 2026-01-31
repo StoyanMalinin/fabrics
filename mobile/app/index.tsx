@@ -1,6 +1,6 @@
 import { SignedIn, SignedOut, useUser } from '@clerk/clerk-expo'
 import { View } from 'react-native'
-import GoogleSignUp from '../(auth)/sign-up-with-google'
+import GoogleSignUp from './(auth)/sign-up-with-google'
 import { MainPage } from './main-page'
 
 export default function Page() {
