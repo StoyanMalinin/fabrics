@@ -4,7 +4,7 @@ import { SignOutButton } from '@/components/sign-out-button'
 import { useEffect, useState } from "react"
 import { BackendGateway } from "@/api/backend-gateway";
 
-export function MainPage() {
+export default function MainPage() {
     const { user } = useUser();
     const { getToken } = useAuth();
     const [userId, setUserId] = useState<string | null>(null);
